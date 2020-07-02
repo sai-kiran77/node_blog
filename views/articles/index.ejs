@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Blog Articles</h1>
+        <a href='/article/new'>New Article</a>
+
+        <% articles.forEach((article) => {%>
+        <div class="article">
+            <div class="title">
+                <%= article.Title %>
+            </div>
+            <div class="date">
+                <%= article.CreatedAt.toLocaleDateString() %>
+            </div>
+            <div class="desc">
+                <%= article.Description %>
+            </div>
+            <a href="article/<%= article.slug %>">Read More</a>
+            <form action="/article/<%=article._id %>?_method=delete" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+        <% }) %>
+    </div>
+</body>
+
+</html>

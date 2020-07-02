@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show</title>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <%= article.Title %>
+        </div>
+        <div class="date">
+            <%= article.CreatedAt.toLocaleDateString() %>
+        </div>
+        <a href="/">All Articles</a>
+        <a href="/article/edit/<%= article._id %>">Edit</a>
+        <div class="mark">
+            <%- article.sanatizedHtml %>
+        </div>
+    </div>
+</body>
+</html>
